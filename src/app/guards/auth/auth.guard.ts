@@ -3,9 +3,9 @@ import {CanActivateFn, Router, UrlSegment} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {map} from 'rxjs';
 
-import {UserAuthenticationSelector} from '../+state';
-import {rebaseRoutePath, RoutePath} from '../app.routes';
-import {AuthService} from '../services/auth/auth.service';
+import {UserAuthenticationSelector} from '../../+state';
+import {rebaseRoutePath, RoutePath} from '../../app.routes';
+import {AuthService} from '../../services/auth/auth.service';
 
 export const authGuard: CanActivateFn = (route) => {
   const store = inject(Store);

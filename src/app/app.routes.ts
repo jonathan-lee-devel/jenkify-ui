@@ -1,9 +1,17 @@
-import { Routes } from '@angular/router';
-import {WelcomePageComponent} from "./components/pages/_root/welcome-page/welcome-page.component";
-import {authGuard} from "./guards/auth.guard";
-import {HomePageComponent} from "./components/pages/_root/home-page/home-page.component";
-import {LoginPageComponent} from "./components/pages/_root/login-page/login-page.component";
-import {RegistrationPageComponent} from "./components/pages/_root/registration-page/registration-page.component";
+import {Routes} from '@angular/router';
+
+import {HomePageComponent} from './components/pages/_root/home-page/home-page.component';
+import {LoginPageComponent} from './components/pages/_root/login-page/login-page.component';
+import {RegistrationPageComponent} from './components/pages/_root/registration-page/registration-page.component';
+import {WelcomePageComponent} from './components/pages/_root/welcome-page/welcome-page.component';
+import {
+  GoogleLoginProcessingComponent,
+} from './components/pages/_users/google-login-processing/google-login-processing.component';
+import {
+  GoogleLoginSuccessComponent,
+} from './components/pages/_users/google-login-success/google-login-success.component';
+import {authGuard} from './guards/auth/auth.guard';
+import {welcomeGuard} from './guards/welcome/welcome.guard';
 
 export enum RoutePath {
   /* ANONYMOUS ROUTES */
@@ -32,6 +40,7 @@ export const routes: Routes = [
   {
     path: RoutePath.LANDING_PAGE,
     component: WelcomePageComponent,
+    canActivate: [welcomeGuard],
   },
   {
     path: RoutePath.HOME_PAGE,
@@ -45,5 +54,13 @@ export const routes: Routes = [
   {
     path: RoutePath.REGISTER,
     component: RegistrationPageComponent,
-  }
+  },
+  {
+    path: RoutePath.GOOGLE_LOGIN_IN_PROGRESS,
+    component: GoogleLoginProcessingComponent,
+  },
+  {
+    path: RoutePath.GOOGLE_LOGIN_SUCCESS,
+    component: GoogleLoginSuccessComponent,
+  },
 ];

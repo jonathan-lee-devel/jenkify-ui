@@ -1,0 +1,18 @@
+<div class="flex-none flex align-items-center justify-content-center mt-8">
+  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 animate__animated animate__zoomInDown">
+    <div class="text-center mb-5">
+      <img alt="Image" class="mb-3" height="50" ngSrc="assets/favicon.ico" width="50">
+      <div class="text-900 text-3xl font-medium mb-3">Confirm Registration</div>
+      <span class="text-600 font-medium line-height-3">Already have an account?</span>
+      <a [routerLink]="rebaseRoutePath(RoutePath.LOGIN)"
+         class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Sign In</a>
+    </div>
+    <div>
+      <form (ngSubmit)="doConfirmRegister()">
+        <div class="flex justify-center items-center text-center my-3">
+          <p-button class="w-full" icon="pi pi-user" label="Confirm Registration" pRipple type="submit"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
