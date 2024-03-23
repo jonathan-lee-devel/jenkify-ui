@@ -9,9 +9,9 @@
     </ngb-alert>
   </div>
   <div class="flex justify-center items-center mt-3 animate__animated animate__slow animate__fadeIn">
-    <button class="btn btn-primary">Register</button>
+    <button class="btn btn-primary" [routerLink]="rebaseRoutePath(RoutePath.REGISTER)">Register</button>
   </div>
   <div class="flex justify-center items-center mt-3 animate__animated animate__slow animate__fadeIn">
-    <button class="btn btn-outline-primary">Login</button>
+    <button class="btn btn-outline-primary" [routerLink]="rebaseRoutePath(RoutePath.LOGIN)">Login</button>
   </div>
 </div>

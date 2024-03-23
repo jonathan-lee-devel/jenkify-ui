@@ -16,6 +16,7 @@ import {provideAnimations} from "@angular/platform-browser/animations";
 import {ErrorInterceptor} from "./interceptors/error/error.interceptor";
 import {AuthInterceptor} from "./interceptors/auth/auth.interceptor";
 import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
+import {extModules} from "../build-specifics";
 
 export const DEFAULT_APP_PROVIDERS = [
   provideStore(),
@@ -33,4 +34,5 @@ export const DEFAULT_APP_PROVIDERS = [
   {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
   {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}},
   provideAnimationsAsync(),
+  extModules,
 ];

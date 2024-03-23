@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 import {AsyncPipe, NgIf} from "@angular/common";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import {RouterLink} from "@angular/router";
+import {SidebarService} from "../../../services/sidebar/sidebar.service";
 
 @Component({
   selector: 'app-navbar',
@@ -29,8 +30,14 @@ export class NavbarComponent {
 
   loggedInState$: Observable<LoggedInState>;
 
-  constructor(private readonly store: Store) {
+  constructor(
+    private readonly store: Store,
+    private readonly sidebarService: SidebarService,
+  ) {
     this.loggedInState$ = this.store.select(UserAuthenticationSelector.selectLoggedInState());
   }
 
+  toggleSidebar() {
+    this.sidebarService.toggleSideBar();
+  }
 }

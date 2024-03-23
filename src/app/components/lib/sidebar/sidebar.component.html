@@ -1,0 +1,12 @@
+<div>
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" [(opened)]="opened">
+            <button mat-button [routerLink]="rebaseRoutePath(RoutePath.LANDING_PAGE)">Home</button>
+            <button mat-button [routerLink]="rebaseRoutePath(RoutePath.QUEUED)">Queued Jobs</button>
+            <button mat-button [routerLink]="rebaseRoutePath(RoutePath.CONFIRM_QUEUE)">Confirm Queue</button>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet/>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
