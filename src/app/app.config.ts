@@ -1,9 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {DEFAULT_APP_PROVIDERS} from "./default-app-providers";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync()]
+  providers: [...DEFAULT_APP_PROVIDERS],
 };

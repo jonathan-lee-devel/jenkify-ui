@@ -1,14 +1,25 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Jenkify</span>
-  <span class="spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
-</mat-toolbar>
-
+<ng-container *ngIf="loggedInState$ | async as loggedInState">
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Jenkify</span>
+    <span class="spacer"></span>
+    <ng-container *ngIf="loggedInState === 'NOT_LOGGED_IN' || loggedInState === 'INIT'">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </ng-container>
+    <ng-container *ngIf="loggedInState === 'LOADING'">
+      <mat-spinner diameter="25"/>
+    </ng-container>
+    <ng-container *ngIf="loggedInState === 'LOGGED_IN'">
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </ng-container>
+  </mat-toolbar>
+</ng-container>
