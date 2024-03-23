@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import {NavbarComponent} from "./components/lib/navbar/navbar.component";
 import {Store} from "@ngrx/store";
-import {UserAuthenticationActions} from "./+state";
+import {UserAuthenticationActions, UserAuthenticationSelector} from "./+state";
 import {rebaseRoutePath, rebaseRoutePathAsString, RoutePath} from "./app.routes";
 import {SidebarService} from "./services/sidebar/sidebar.service";
 import {Subscription, tap} from "rxjs";
@@ -26,10 +26,12 @@ import {SidebarComponent} from "./components/lib/sidebar/sidebar.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'jenkify-ui';
   isSidebarOpenedSubscription: Subscription;
+  isLoggedInSubscription: Subscription;
   opened: boolean = true;
+  isLoggedIn: boolean = false;
 
   constructor(
     private readonly store: Store,
@@ -41,12 +43,22 @@ export class AppComponent implements OnInit {
           this.opened = isSideBarOpened;
         }),
       ).subscribe();
+    this.isLoggedInSubscription = this.store.select(UserAuthenticationSelector.selectLoggedInState()).pipe(
+      tap((loggedInState) => {
+        this.isLoggedIn = loggedInState === 'LOGGED_IN';
+      }),
+    ).subscribe();
   }
 
   ngOnInit() {
     this.store.dispatch(UserAuthenticationActions.checkLoginOnRefresh({
       next: encodeURIComponent(rebaseRoutePathAsString(RoutePath.HOME_PAGE))
     }));
+  }
+
+  ngOnDestroy() {
+    this.isSidebarOpenedSubscription?.unsubscribe();
+    this.isLoggedInSubscription?.unsubscribe();
   }
 
   protected readonly rebaseRoutePath = rebaseRoutePath;
