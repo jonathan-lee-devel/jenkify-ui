@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="flex justify-center items-center mt-5">
+    <h1 class="text-3xl text-black">Register</h1>
+  </div>
+  <div class="mb-3">
+    <label for="emailInput" class="form-label text-black">Email Address</label>
+    <input [(ngModel)]="email" type="email" class="form-control" id="emailInput" name="email" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="firstNameInput" class="form-label text-black">Email Address</label>
+    <input [(ngModel)]="firstName" type="email" class="form-control" id="firstNameInput" name="firstName" placeholder="First Name">
+  </div>
+  <div class="mb-3">
+    <label for="lastNameInput" class="form-label text-black">Email Address</label>
+    <input [(ngModel)]="lastName" type="email" class="form-control" id="lastNameInput" name="lastName" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="passwordInput" class="form-label text-black">Password</label>
+    <input [(ngModel)]="password" type="password" class="form-control" id="passwordInput" name="password" placeholder="Password">
+  </div>
+  <div class="mb-3">
+    <label for="confirmPasswordInput" class="form-label text-black">Confirm Password</label>
+    <input [(ngModel)]="confirmPassword" type="password" class="form-control" id="confirmPasswordInput" name="confirmPassword" placeholder="Confirm Password">
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary">Register</button>
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-outline-primary">Login with Google</button>
+  </div>
+</div>

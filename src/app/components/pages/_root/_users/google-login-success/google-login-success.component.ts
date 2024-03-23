@@ -4,8 +4,9 @@ import {ActivatedRoute} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {delay, take, tap} from 'rxjs';
 
-import {UserAuthenticationActions} from '../../../../+state/auth/user-auth.actions';
-import {SuccessCheckmarkComponent} from '../../../lib/success-checkmark/success-checkmark.component';
+import {UserAuthenticationActions} from '../../../../../+state';
+import {SuccessCheckmarkComponent} from '../../../../lib/success-checkmark/success-checkmark.component';
+
 
 @Component({
   selector: 'app-google-login-success',

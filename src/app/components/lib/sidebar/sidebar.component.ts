@@ -1,9 +1,11 @@
+import {NgIf} from '@angular/common';
 import {Component, Input} from '@angular/core';
-import {rebaseRoutePath, RoutePath} from "../../../app.routes";
-import {MatButton} from "@angular/material/button";
-import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {RouterLink, RouterOutlet} from "@angular/router";
-import {NgIf} from "@angular/common";
+import {MatButton} from '@angular/material/button';
+import {MatDivider} from '@angular/material/divider';
+import {MatSidenav, MatSidenavContainer, MatSidenavContent} from '@angular/material/sidenav';
+import {RouterLink, RouterOutlet} from '@angular/router';
+
+import {rebaseRoutePath, RoutePath} from '../../../app.routes';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,10 +17,11 @@ import {NgIf} from "@angular/common";
     MatSidenavContent,
     RouterOutlet,
     RouterLink,
-    NgIf
+    NgIf,
+    MatDivider,
   ],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+  styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent {
   @Input({required: true}) opened: boolean = true;
@@ -26,4 +29,8 @@ export class SidebarComponent {
 
   protected readonly rebaseRoutePath = rebaseRoutePath;
   protected readonly RoutePath = RoutePath;
+  jenkinsInstances: string[] = [
+    'eks-dev',
+    'eks-uat',
+  ];
 }

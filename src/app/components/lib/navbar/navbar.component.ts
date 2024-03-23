@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import {MatToolbar} from "@angular/material/toolbar";
-import {MatButton, MatIconButton} from "@angular/material/button";
-import {MatIcon} from "@angular/material/icon";
-import {Store} from "@ngrx/store";
-import {LoggedInState, UserAuthenticationSelector} from "../../../+state";
-import {Observable} from "rxjs";
-import {AsyncPipe, NgIf} from "@angular/common";
-import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {RouterLink} from "@angular/router";
-import {SidebarService} from "../../../services/sidebar/sidebar.service";
+import {AsyncPipe, NgIf} from '@angular/common';
+import {Component} from '@angular/core';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import {MatIcon} from '@angular/material/icon';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
+import {MatToolbar} from '@angular/material/toolbar';
+import {MatTooltip} from '@angular/material/tooltip';
+import {RouterLink} from '@angular/router';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+
+import {LoggedInState, UserAuthenticationActions, UserAuthenticationSelector} from '../../../+state';
+import {rebaseRoutePath, RoutePath} from '../../../app.routes';
+import {SidebarService} from '../../../services/sidebar/sidebar.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -21,13 +25,13 @@ import {SidebarService} from "../../../services/sidebar/sidebar.service";
     AsyncPipe,
     MatProgressSpinner,
     RouterLink,
-    MatButton
+    MatButton,
+    MatTooltip,
   ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-
   loggedInState$: Observable<LoggedInState>;
 
   constructor(
@@ -40,4 +44,11 @@ export class NavbarComponent {
   toggleSidebar() {
     this.sidebarService.toggleSideBar();
   }
+
+  doLogout() {
+    this.store.dispatch(UserAuthenticationActions.logout());
+  }
+
+  protected readonly rebaseRoutePath = rebaseRoutePath;
+  protected readonly RoutePath = RoutePath;
 }

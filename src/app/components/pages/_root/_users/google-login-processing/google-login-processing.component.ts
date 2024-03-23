@@ -2,8 +2,8 @@ import {CommonModule} from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-import {environment} from '../../../../../environments/environment';
-import {SuccessCheckmarkComponent} from '../../../lib/success-checkmark/success-checkmark.component';
+import {environment} from '../../../../../../environments/environment';
+import {SuccessCheckmarkComponent} from '../../../../lib/success-checkmark/success-checkmark.component';
 
 @Component({
   selector: 'app-google-login-processing',

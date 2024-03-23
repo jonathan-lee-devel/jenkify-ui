@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Store} from '@ngrx/store';
 
-import {UserAuthenticationActions} from '../../../../+state';
+import {UserAuthenticationActions} from '../../../../../+state';
 
 @Component({
   selector: 'app-login-page',

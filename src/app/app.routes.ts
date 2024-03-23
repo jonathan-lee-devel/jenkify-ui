@@ -1,15 +1,15 @@
 import {Routes} from '@angular/router';
 
-import {HomePageComponent} from './components/pages/_root/home-page/home-page.component';
-import {LoginPageComponent} from './components/pages/_root/login-page/login-page.component';
-import {RegistrationPageComponent} from './components/pages/_root/registration-page/registration-page.component';
-import {WelcomePageComponent} from './components/pages/_root/welcome-page/welcome-page.component';
 import {
   GoogleLoginProcessingComponent,
-} from './components/pages/_users/google-login-processing/google-login-processing.component';
+} from './components/pages/_root/_users/google-login-processing/google-login-processing.component';
 import {
   GoogleLoginSuccessComponent,
-} from './components/pages/_users/google-login-success/google-login-success.component';
+} from './components/pages/_root/_users/google-login-success/google-login-success.component';
+import {LoginPageComponent} from './components/pages/_root/_users/login-page/login-page.component';
+import {RegistrationPageComponent} from './components/pages/_root/_users/registration-page/registration-page.component';
+import {HomePageComponent} from './components/pages/_root/home-page/home-page.component';
+import {WelcomePageComponent} from './components/pages/_root/welcome-page/welcome-page.component';
 import {authGuard} from './guards/auth/auth.guard';
 import {welcomeGuard} from './guards/welcome/welcome.guard';
 

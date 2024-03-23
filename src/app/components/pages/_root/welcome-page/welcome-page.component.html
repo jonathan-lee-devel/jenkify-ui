@@ -4,14 +4,9 @@
   </div>
   <div class="row mt-3 animate__animated animate__fadeIn">
     <ngb-alert [dismissible]="false">
-      <p class="flex justify-center items-center">Welcome to &nbsp;<strong>Jenkify!</strong></p>
-      <p class="flex justify-center items-center">You need to be logged in to use this website.</p>
+      <p class="flex justify-center items-center text-3xl">Welcome to Jenkify!</p>
+      <p class="flex justify-center items-center">You need to create an account and be logged in to use this website.</p>
+      <p class="flex justify-center items-center">The register and login buttons are in the top right corner.</p>
     </ngb-alert>
-  </div>
-  <div class="flex justify-center items-center mt-3 animate__animated animate__slow animate__fadeIn">
-    <button class="btn btn-primary" [routerLink]="rebaseRoutePath(RoutePath.REGISTER)">Register</button>
-  </div>
-  <div class="flex justify-center items-center mt-3 animate__animated animate__slow animate__fadeIn">
-    <button class="btn btn-outline-primary" [routerLink]="rebaseRoutePath(RoutePath.LOGIN)">Login</button>
   </div>
 </div>
