@@ -9,6 +9,7 @@ import {UserAuthenticationActions, UserAuthenticationSelector} from './+state';
 import {rebaseRoutePath, rebaseRoutePathAsString, RoutePath} from './app.routes';
 import {NavbarComponent} from './components/lib/navbar/navbar.component';
 import {SidebarComponent} from './components/lib/sidebar/sidebar.component';
+import {ToastComponent} from './components/lib/toast/toast.component';
 import {SidebarService} from './services/sidebar/sidebar.service';
 
 @Component({
@@ -23,6 +24,7 @@ import {SidebarService} from './services/sidebar/sidebar.service';
     MatSidenavContent,
     RouterLink,
     SidebarComponent,
+    ToastComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

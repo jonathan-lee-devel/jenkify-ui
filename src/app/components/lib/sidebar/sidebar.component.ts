@@ -6,6 +6,7 @@ import {MatSidenav, MatSidenavContainer, MatSidenavContent} from '@angular/mater
 import {RouterLink, RouterOutlet} from '@angular/router';
 
 import {rebaseRoutePath, RoutePath} from '../../../app.routes';
+import {ToastComponent} from '../toast/toast.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,6 +20,7 @@ import {rebaseRoutePath, RoutePath} from '../../../app.routes';
     RouterLink,
     NgIf,
     MatDivider,
+    ToastComponent,
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

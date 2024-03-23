@@ -6,7 +6,7 @@ import {environment} from '../../../environments/environment';
 import {RoutePath} from '../../app.routes';
 import {RegisterDto} from '../../dtos/register/RegisterDto';
 import {RegistrationRequestDto} from '../../dtos/register/RegistrationRequestDto';
-import {ToastWrapperService} from '../toast-wrapper/toast-wrapper.service';
+import {ToastService} from '../toast/toast.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class RegisterService {
   constructor(
     private httpClient: HttpClient,
     private router: Router,
-    private toastWrapperService: ToastWrapperService,
+    private readonly toastService: ToastService,
   ) { }
 
   doRegister(registrationRequestDto: RegistrationRequestDto) {
@@ -36,21 +36,14 @@ export class RegisterService {
               message = 'An unknown error has occurred';
           }
           if (!isError) {
-            this.toastWrapperService.showConfirmMessage(
+            this.toastService.show(
                 'Verification E-mail Sent',
                 'We have sent you further instructions, if not found, check your spam folder.',
-                true,
-                true,
-                'info',
             );
           } else {
-            this.toastWrapperService.showToast(
+            this.toastService.show(
                 'Error',
                 message,
-                false,
-                true,
-                'error',
-                10_000,
             );
           }
         });
@@ -75,21 +68,14 @@ export class RegisterService {
             this.router.navigate([`/${RoutePath.LOGIN}`]).catch((reason) => window.alert(reason));
           }
           if (!isError) {
-            this.toastWrapperService.showConfirmMessage(
+            this.toastService.show(
                 'E-mail Verified Successfully',
                 'You may now log in',
-                true,
-                true,
-                'info',
             );
           } else {
-            this.toastWrapperService.showToast(
+            this.toastService.show(
                 'Error',
                 message,
-                false,
-                true,
-                'error',
-                10_000,
             );
           }
         });

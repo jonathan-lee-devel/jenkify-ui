@@ -26,6 +26,22 @@ const jwtLoginAttempt = createAction(
     props<{email: string, password: string}>(),
 );
 
+const registerAttempt = createAction(
+    '[Auth] Register Attempt',
+    props<{
+      email: string,
+      firstName: string,
+      lastName: string,
+      password: string,
+      confirmPassword: string,
+      isAcceptTermsAndConditions: boolean,
+    }>(),
+);
+
+const registerAttempted = createAction(
+    '[Auth] Register Attempted',
+);
+
 const googleLoginAttempt = createAction(
     '[Auth] Google Login Attempt',
 );
@@ -76,6 +92,8 @@ export const UserAuthenticationActions = {
   checkLoginOnRefresh,
   loginPageVisitedWithNext,
   jwtLoginAttempt,
+  registerAttempt,
+  registerAttempted,
   googleLoginAttempt,
   googleLoginInProgress,
   googleLoginRedirect,

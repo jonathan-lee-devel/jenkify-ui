@@ -2,5 +2,6 @@
   <ngb-toast
     [header]="toast.header" [autohide]="true" [delay]="toast.delay ?? 5000"
     (hidden)="toastService.remove(toast)"
+    class="text-black"
   >{{ toast.body }}</ngb-toast>
 }
