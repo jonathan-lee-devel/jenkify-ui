@@ -15,6 +15,18 @@ const initialState: QueueState = {
       host: 'http://localhost:8080',
       color: 'Blue',
     },
+    {
+      name: 'AnotherJob',
+      url: 'http://localhost:8080/job/AnotherJob',
+      host: 'http://localhost:8080',
+      color: 'Blue',
+    },
+    {
+      name: 'YetAnotherJob',
+      url: 'http://localhost:8080/job/YetAnotherJob',
+      host: 'http://localhost:8080',
+      color: 'Blue',
+    },
   ],
 };
 
