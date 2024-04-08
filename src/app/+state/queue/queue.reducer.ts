@@ -8,7 +8,14 @@ export interface QueueState {
 }
 
 const initialState: QueueState = {
-  jobs: [],
+  jobs: [
+    {
+      name: 'TestJob',
+      url: 'http://localhost:8080/job/TestJob',
+      host: 'http://localhost:8080',
+      color: 'Blue',
+    },
+  ],
 };
 
 export const queueReducer = createReducer(

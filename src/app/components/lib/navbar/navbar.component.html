@@ -1,6 +1,7 @@
 <ng-container *ngIf="loggedInState$ | async as loggedInState">
   <mat-toolbar color="primary">
-    <button (click)="toggleSidebar()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button (click)="toggleSidebar()" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
     <span>Jenkify</span>
@@ -17,6 +18,17 @@
       <mat-spinner diameter="25"/>
     </ng-container>
     <ng-container *ngIf="loggedInState === 'LOGGED_IN'">
+      <ng-container *ngIf="queuedJobs$ | async as queuedJobs">
+        <button
+          [routerLink]="rebaseRoutePath(RoutePath.QUEUED)"
+          [matBadge]="queuedJobs.length"
+          matBadgeColor="accent"
+          matBadgeSize="small"
+          mat-icon-button
+          matTooltip="Queued Jobs">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </ng-container>
       <button (click)="doLogout()" mat-icon-button matTooltip="Log Out">
         <mat-icon>exit_to_app</mat-icon>
       </button>

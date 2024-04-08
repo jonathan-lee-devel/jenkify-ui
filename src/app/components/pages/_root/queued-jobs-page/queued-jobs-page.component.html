@@ -1,0 +1,28 @@
+<h1 class="text-black underline mx-3 my-3">Queued Jobs</h1>
+<div class="mx-3 my-3">
+  <button [routerLink]="rebaseRoutePath(RoutePath.CONFIRM_QUEUE)" mat-raised-button>Continue with Queue</button>
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Host</th>
+      <th scope="col">Name</th>
+      <th scope="col">URL</th>
+      <th scope="col">Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="queuedJobs$ | async as queuedJobs">
+      @for (job of queuedJobs; track job; ) {
+        <tr>
+          <td>{{ job.host }}</td>
+          <td>{{ job.name }}</td>
+          <td>{{ job.url }}</td>
+          <td><button (click)="removeJobFromQueue(job)" mat-raised-button>Remove</button></td>
+        </tr>
+      }
+    </ng-container>
+    </tbody>
+  </table>
+</div>

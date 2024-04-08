@@ -8,7 +8,9 @@ import {
 } from './components/pages/_root/_users/google-login-success/google-login-success.component';
 import {LoginPageComponent} from './components/pages/_root/_users/login-page/login-page.component';
 import {RegistrationPageComponent} from './components/pages/_root/_users/registration-page/registration-page.component';
+import {ConfirmQueuePageComponent} from './components/pages/_root/confirm-queue-page/confirm-queue-page.component';
 import {HomePageComponent} from './components/pages/_root/home-page/home-page.component';
+import {QueuedJobsPageComponent} from './components/pages/_root/queued-jobs-page/queued-jobs-page.component';
 import {WelcomePageComponent} from './components/pages/_root/welcome-page/welcome-page.component';
 import {authGuard} from './guards/auth/auth.guard';
 import {welcomeGuard} from './guards/welcome/welcome.guard';
@@ -45,6 +47,16 @@ export const routes: Routes = [
   {
     path: RoutePath.HOME_PAGE,
     component: HomePageComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: RoutePath.QUEUED,
+    component: QueuedJobsPageComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: RoutePath.CONFIRM_QUEUE,
+    component: ConfirmQueuePageComponent,
     canActivate: [authGuard],
   },
   {
